@@ -1,0 +1,186 @@
+:root {
+  --main-clr: hsl(0, 0%, 81%);
+  --main-bg-clr: hsl(210, 46%, 95%);
+
+  --main-ff: "Barlow Semi Condensed", sans-serif;
+
+  --main-fs: 0.8125rem;
+
+  --main-fw: 500;
+  --accent-fw: 600;
+}
+
+/* Relevant CSS reset */
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+}
+
+body {
+  background-color: var(--main-bg-clr);
+
+  font-family: var(--main-ff);
+  font-size: var(--main-fs);
+  font-weight: var(--main-fw);
+}
+
+h2 {
+  font-size: 20.125px;
+  font-weight: var(--accent-fw);
+
+  line-height: 125%;
+}
+
+blockquote {
+  line-height: 150%;
+}
+
+.testimonial-container {
+  /* Use flexbox until we reach the breakpoint for the desktop design */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+
+  margin: 4.5rem 1.5rem;
+}
+
+.testimonial-card {
+  display: grid;
+  gap: 1rem;
+
+  padding: 1.5rem 2rem;
+
+  border-radius: 0.5rem;
+
+  max-width: 23.25rem;
+}
+
+.testimonial-card:first-child {
+  position: relative;
+}
+
+/* Set the z-index of the elements so the quotation image is behind any text */
+.testimonial-card:first-child > * {
+  z-index: 1;
+}
+
+.testimonial-card:first-child::before {
+  content: url(./images/bg-pattern-quotation.svg);
+
+  position: absolute;
+  z-index: 0;
+
+  right: 7.5%;
+}
+
+@media screen and (width >= 1200px) {
+  /* Centers dekstop design vertically */
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  .testimonial-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    max-width: 69.375rem;
+    max-height: 35.9375rem;
+
+    margin: auto;
+  }
+
+  .testimonial-card {
+    max-width: unset;
+  }
+
+  .testimonial-card:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .testimonial-card:nth-child(3) {
+    grid-row: 2;
+  }
+
+  .testimonial-card:nth-child(4) {
+    grid-column: span 2;
+    grid-row: 2;
+  }
+
+  .testimonial-card:nth-child(5) {
+    grid-row: 1 / span 2;
+  }
+
+  .testimonial-card:first-child::before {
+    right: 15%;
+  }
+}
+
+.testimonial-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-picture {
+  border-radius: 100%;
+  max-width: 1.75rem;
+}
+
+.graduate-title {
+  font-size: 0.6875rem;
+  opacity: 50%;
+}
+
+.testimonial-review {
+  padding-right: 1rem;
+
+  font-size: 0.7813rem;
+
+  opacity: 50%;
+}
+
+.purple-card {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(263, 55%, 52%);
+}
+
+.purple-card > * .profile-picture {
+  box-shadow: 0 0 0 0.125rem hsl(263, 55%, 68%);
+}
+
+.grey-card {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(217, 19%, 35%);
+}
+
+.white-card {
+  color: hsl(217, 19%, 35%);
+  background-color: hsl(0, 0%, 100%);
+
+  box-shadow: 0 0 24px 0 hsla(217, 19%, 35%, 20%);
+}
+
+.black-card {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(219, 29%, 14%);
+}
+
+.black-card > * .profile-picture {
+  box-shadow: 0 0 0 0.125rem hsl(263, 55%, 52%);
+}
